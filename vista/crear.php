@@ -17,7 +17,7 @@
                         </select>
                         </div>
                         <div class="input-field col s2">
-                            <a class="waves-effect waves-light btn">Nuevo</a>
+                            <a href="pabellones.php" class="waves-effect waves-light btn">Nuevo</a>
                         </div>
                         <div class="input-field col s12">
                             <input type="date" id="fecha" name="fecha" class="validate" required>
@@ -54,9 +54,6 @@
                     </div>
                 </form>
             </div>              
-        </div>
-        <div class="row center-align" id="resultado">
-        
         </div>
     </div>
 
