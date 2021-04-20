@@ -6,12 +6,12 @@
             <h6>Rellena el formulario y crea tu propia pachanga.</h6>
             <br><br>
             <div class="col s12 m12 l6 offset-l3">
-                <form action="../controlador/registrar_controlador.php" class="col s12" method="post" accept-charset="UTF-8">
+                <form action="../controlador/crear_controlador.php" class="col s12" method="post" accept-charset="UTF-8">
                     <div class="row card-panel">
                         <div class="input-field col s10">
                         <select id="pabellon" name="pabellon" class="validate" required>
                             <option value="" disabled selected>Selecciona o crea un nuevo lugar donde jugar</option>
-                            <?php require_once("../controlador/crear_controlador.php"); ?>
+                            <?php require_once("../controlador/carga_pabellones_controlador.php"); ?>
                         </select>
                         </div>
                         <div class="input-field col s2">
@@ -43,9 +43,12 @@
                                 </label>
                             </p>
                             <div class="input-field col s6" id="campoClave">
-                                <input type="text" id="clave" name="clave" class="validate" placeholder="De 6 a 12 caracteres" pattern="[A-Za-z0-9]{6,12}" required>
+                                <input type="text" id="clave" name="clave" class="validate" placeholder="De 6 a 12 caracteres" pattern="[A-Za-z0-9]{6,12}">
                                 <label for="clave">Clave de la pachanga:</label>
-                            </div>                            
+                            </div> 
+                            <div class="input-field col s12">
+                                <input type="hidden" id="id_creador" name="id_creador" value="<?php echo $_SESSION['id']; ?>">
+                            </div>                           
                         </div>                      
             
                         <button class="btn" type="submit">Crear pachanga</button>
@@ -62,12 +65,14 @@
                 var c = document.getElementById("privado").checked;
                 if (c) {
                     $("#campoClave").show();
+                    $("#clave").attr("required", true);
                 }
             });
             $('#publico').on("click", function(){
                 var d = document.getElementById("publico").checked;
                 if (d) {
                     $("#campoClave").hide();
+                    $("#clave").attr("required", false);
                 }
             });
             $('#clave').on("blur", function(){

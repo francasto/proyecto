@@ -3,23 +3,25 @@
 
     class Crear_modelo {
         private $db;
-        private $pabellones;
 
         public function __construct() {
             $this->db=Conectar::conexion();
-            $this->pabellones=array();
+
         }
 
-        public function get_pabellones() {
-            $consulta=$this->db->query("select * from pabellones where id_creador = '" . $_SESSION["id"] . "'");
-            if($consulta->rowCount() > 0) {
-                while($filas=$consulta->fetch(PDO::FETCH_ASSOC)) {
-                    $this->pabellones[]=$filas;
-                    echo "<option value='" . $filas["id_pabellon"] . "'>" . $filas["nombre"] . ". " . $filas["localidad"] . "</option>";
-                }
-            }
+        public function set_pachanga() {
+            $fecha=htmlentities(addslashes($_POST["fecha"]));
+            $hora=htmlentities(addslashes($_POST["hora"]));
+            $pabellon=htmlentities(addslashes($_POST["pabellon"]));
+            $precio=htmlentities(addslashes($_POST["precio"]));
+            $codigo=htmlentities(addslashes($_POST["visibilidad"]));
+            $id=htmlentities(addslashes($_POST["id_creador"]));
             
+            $sql="insert into pachangas (fecha, hora, id_pabellon, precio, codigo_pachanga, id_creador) values ('" . $fecha . "','" . $hora . "','" . $pabellon . "','" . 
+            $precio . "','" . $codigo . "','" . $id . "');";
+            $consulta=$this->db->query($sql);
+            header("location:../vista/zonaprivada.php");
+            //return $consulta;
         }
-
     }
 ?>

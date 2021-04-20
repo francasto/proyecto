@@ -13,8 +13,6 @@
             $direccion=htmlentities(addslashes($_POST["direccion"]));
             $localidad=htmlentities(addslashes($_POST["localidad"]));
             $tel=htmlentities(addslashes($_POST["tel"]));
-            echo $_POST["tel"];
-            echo $_POST["id_creador"];
             $id_creador=htmlentities(addslashes($_POST["id_creador"]));
             $sql="insert into pabellones (nombre, direccion, localidad, telefono, id_creador) values ('" . $nombre . "','" . $direccion . "','" . $localidad . "','" . 
             $tel . "','" . $id_creador . "');";
