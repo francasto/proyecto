@@ -36,11 +36,4 @@
         </div>
     </div>
 
-    <script>
-        $(document).ready(function(){
-            //var id = <?php echo $_SESSION['id']; ?>;
-            //$("#id_creador").val(id);
-    })
-    </script>
-
 <?php include("footer_privado.php"); ?>

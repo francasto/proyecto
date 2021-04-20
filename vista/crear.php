@@ -10,10 +10,8 @@
                     <div class="row card-panel">
                         <div class="input-field col s10">
                         <select id="pabellon" name="pabellon" class="validate" required>
-                            <option value="" disabled selected>Pabellón</option>
-                            <option value="1">Option 1</option>
-                            <option value="2">Option 2</option>
-                            <option value="3">Option 3</option>
+                            <option value="" disabled selected>Selecciona o crea un nuevo lugar donde jugar</option>
+                            <?php require_once("../controlador/crear_controlador.php"); ?>
                         </select>
                         </div>
                         <div class="input-field col s2">
